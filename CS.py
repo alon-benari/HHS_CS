@@ -53,7 +53,7 @@ class CS:
         '''
         f = open('USpopulatio.json')
         data = json.load(f)
-        return return df[['Type of Breach','Count']].groupby('Type of Breach').count()
+        return  df[['Type of Breach','Count']].groupby('Type of Breach').count()
 
     
         
@@ -63,20 +63,20 @@ class CS:
 
 ##run
 cs = CS()
-# daily events
-# daily_event= cs.daily_event(2023)
-# fig,(ax0,ax1) = plt.subplots(1,2)
-# ax0.set_xlabel('daily count')
-# ax0.hist(daily_event, bins = 36)
-# ax1.set_xlabel('count')
-# ax1.boxplot(daily_event.Count)
+
+daily_event= cs.daily_event(2023)
+fig,(ax0,ax1) = plt.subplots(1,2)
+ax0.set_xlabel('daily count')
+ax0.hist(daily_event, bins = 36)
+ax1.set_xlabel('count')
+ax1.boxplot(daily_event.Count)
 
 # covered entities
-# covered = cs.covered_entity(2024)
-# fig, ax = plt.subplots(1,1,figsize = (10,8))
-# ax.set_title('breach count by  entities')
-# covered.plot.barh(ax = ax)
-# plt.show()
+covered = cs.covered_entity(2024)
+fig, ax = plt.subplots(1,1,figsize = (10,8))
+ax.set_title('breach count by  entities')
+covered.plot.barh(ax = ax)
+plt.show()
 
 #Type of breach
 breach_type = cs.breach_type(2024)
